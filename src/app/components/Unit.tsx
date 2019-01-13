@@ -4,7 +4,6 @@ import {
   denominationSymbols,
   Denomination,
   fiatSymbols,
-  CHAIN_TYPE,
 } from 'utils/constants';
 import { fromBaseToUnit, fromUnitToFiat } from 'utils/units';
 import { commaify } from 'utils/formatters';
@@ -17,6 +16,7 @@ interface StateProps {
   denomination: AppState['settings']['denomination'];
   isFiatPrimary: AppState['settings']['isFiatPrimary'];
   isNoFiat: AppState['settings']['isNoFiat'];
+  chain: ReturnType<typeof getNodeChain>;
 }
 
 interface OwnProps {
@@ -24,7 +24,6 @@ interface OwnProps {
   hideUnit?: boolean;
   showFiat?: boolean;
   showPlus?: boolean;
-  chain: CHAIN_TYPE;
 }
 
 type Props = StateProps & OwnProps;
